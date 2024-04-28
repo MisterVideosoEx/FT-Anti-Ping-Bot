@@ -62,7 +62,10 @@ async def PingReminder(message, messageSender = 'null', userBeingPinged = 'null'
     if guild.id == '612289903769944064': # RoFT Fan Chat
         await message.reply(f'{messageSender}, please **do not ping** {userBeingPinged}!\n\n||<@&893332671126716426>||', mention_author=invertMessageAuthorBot)
     if guild.id == '443253214859755522': # Shonx Cave
-        await message.reply(f'{messageSender}, please **do not ping** {userBeingPinged}!\n\n||<@&1136545756845707265>||', mention_author=invertMessageAuthorBot)
+        if message.author.bot:
+            pass
+        else:
+            await message.reply(f'{messageSender}, please **do not ping** {userBeingPinged}!\n\n||<@&1136545756845707265>||', mention_author=invertMessageAuthorBot)
     else:
         await message.reply(f'{messageSender}, please **do not ping** {userBeingPinged}!', mention_author=invertMessageAuthorBot)
 
