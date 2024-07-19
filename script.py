@@ -58,12 +58,12 @@ async def PingReminder(message, messageSender = 'null', userBeingPinged = 'null'
     MessageAuthorNotBot = not message.author.bot
 
     if guild.id == '900946140474769418': # Geyser Host
-        await message.reply(f'{messageSender}, please **do not ping** {userBeingPinged}!\n\n||<@&900946337007304724>||', mention_author=MessageAuthorNotBot)
+        await message.reply(f'{messageSender}, please **do not ping** {userBeingPinged}!', mention_author=MessageAuthorNotBot)
     if guild.id == '612289903769944064': # RoFT Fan Chat
-        await message.reply(f'{messageSender}, please **do not ping** {userBeingPinged}!\n\n||<@&893332671126716426>||', mention_author=MessageAuthorNotBot)
+        await message.reply(f'{messageSender}, **please refrain** from pinging {userBeingPinged} unless it's an urgent matter! If this is an emergency, you may safely ignore this warning.', mention_author=MessageAuthorNotBot)
     if guild.id == '443253214859755522': # Shonx Cave
         if MessageAuthorNotBot:
-            await message.reply(f'{messageSender}, please **do not ping** {userBeingPinged}!\n\n||<@&1136545756845707265>||', mention_author=MessageAuthorNotBot)
+            await message.reply(f'{messageSender}, please **do not ping** {userBeingPinged}!', mention_author=MessageAuthorNotBot)
     else:
         await message.reply(f'{messageSender}, please **do not ping** {userBeingPinged}!', mention_author=MessageAuthorNotBot)
 
@@ -88,11 +88,11 @@ async def on_message_edit(before, after):
                 userWithoutHashtag = str(user).split('#')[0]
                 # Add code here to differentiate pings by server
                 if guild.id == '900946140474769418': # Geyser Host
-                    await after.reply(f'{userWithoutHashtag} has been mentioned in an edited message. Please **do not ping** them!\n\n||<@&900946337007304724>||', mention_author=True)
+                    await after.reply(f'{userWithoutHashtag} has been mentioned in an edited message. Please **do not ping** them!', mention_author=True)
                 if guild.id == '612289903769944064': # RoFT Fan Chat
-                    await after.reply(f'{userWithoutHashtag} has been mentioned in an edited message. Please **do not ping** them!\n\n||<@323588845251723265>||', mention_author=True)
+                    await after.reply(f'{userWithoutHashtag} has been mentioned in an edited message. Please **do not ping** them!', mention_author=True)
                 if guild.id == '443253214859755522': # Shonx Cave
-                    await after.reply(f'{userWithoutHashtag} has been mentioned in an edited message. Please **do not ping** them!\n\n||<@&1136545756845707265>||', mention_author=True)
+                    await after.reply(f'{userWithoutHashtag} has been mentioned in an edited message. Please **do not ping** them!', mention_author=True)
                 
 
 token = os.getenv('DISCORD_TOKEN')
