@@ -60,7 +60,7 @@ async def PingReminder(message, messageSender = 'null', userBeingPinged = 'null'
     if guild.id == '900946140474769418': # Geyser Host
         await message.reply(f'{messageSender}, please **do not ping** {userBeingPinged}!', mention_author=MessageAuthorNotBot)
     if guild.id == '612289903769944064': # RoFT Fan Chat
-        await message.reply(f'{messageSender}, **please refrain** from pinging {userBeingPinged} unless it's an urgent matter! If this is an emergency, you may safely ignore this warning.', mention_author=MessageAuthorNotBot)
+        await message.reply(f"{messageSender}, **please refrain** from pinging {userBeingPinged} unless it's an urgent matter! If this is an emergency, you may safely ignore this warning.", mention_author=MessageAuthorNotBot)
     if guild.id == '443253214859755522': # Shonx Cave
         if MessageAuthorNotBot:
             await message.reply(f'{messageSender}, please **do not ping** {userBeingPinged}!', mention_author=MessageAuthorNotBot)
@@ -86,14 +86,7 @@ async def on_message_edit(before, after):
         for user in mentioned_users:
             if str(user.id) in do_not_ping:
                 userWithoutHashtag = str(user).split('#')[0]
-                # Add code here to differentiate pings by server
-                if guild.id == '900946140474769418': # Geyser Host
-                    await after.reply(f'{userWithoutHashtag} has been mentioned in an edited message. Please **do not ping** them!', mention_author=True)
-                if guild.id == '612289903769944064': # RoFT Fan Chat
-                    await after.reply(f'{userWithoutHashtag} has been mentioned in an edited message. Please **do not ping** them!', mention_author=True)
-                if guild.id == '443253214859755522': # Shonx Cave
-                    await after.reply(f'{userWithoutHashtag} has been mentioned in an edited message. Please **do not ping** them!', mention_author=True)
-                
+                await after.reply(f'{userWithoutHashtag} has been mentioned in an edited message. Please **do not ping** them!', mention_author=True)             
 
 token = os.getenv('DISCORD_TOKEN')
 client.run(token)
